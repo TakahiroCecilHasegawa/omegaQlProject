@@ -7,9 +7,11 @@ settlementDays = 2
 today = calendar.advance(settlementDate, -settlementDays, ql.Days)
 ql.Settings.instance().setEvaluationDate(today)
 
-# OIS rate
+# Cash rates
 ovn1dRate = ql.SimpleQuote(0.073 / 100.0)
 ovnTnRate = ql.SimpleQuote(0.073 / 100.0)
+
+# OIS rates
 ois1WRate = ql.SimpleQuote(0.073 / 100.0)
 ois2WRate = ql.SimpleQuote(0.073 / 100.0)
 ois3WRate = ql.SimpleQuote(0.073 / 100.0)
