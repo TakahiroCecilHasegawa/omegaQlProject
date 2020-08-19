@@ -18,8 +18,8 @@ ovn1dRate = ql.SimpleQuote(0.10 / 100.0)
 https://www.cmegroup.com/trading/interest-rates/stir/one-month-sofr_quotes_globex.html
 '''
 SofeFutures_1M_list = [
-    {'price':99.92, 'convx':0.004, 'Year':2020, 'Month':9},
-    {'price':99.92, 'convx':0.004, 'Year':2020, 'Month':10}
+    {'price':99.92, 'convx':0.0, 'Year':2020, 'Month':9},
+    {'price':99.92, 'convx':0.0, 'Year':2020, 'Month':10}
 ]
 
 # SOFR Futures 3M
@@ -27,9 +27,9 @@ SofeFutures_1M_list = [
 https://www.cmegroup.com/trading/interest-rates/stir/three-month-sofr_quotes_globex.html
 '''
 SofeFutures_3M_list = [
-    {'price':99.96, 'convx':0.004, 'Year':2021, 'Month':3},
-    {'price':99.97, 'convx':0.004, 'Year':2021, 'Month':6},
-    {'price':99.975, 'convx':0.004, 'Year':2021, 'Month':9}
+    {'price':99.96, 'convx':0.0, 'Year':2021, 'Month':3},
+    {'price':99.97, 'convx':0.0, 'Year':2021, 'Month':6},
+    {'price':99.975, 'convx':0.0, 'Year':2021, 'Month':9}
 ]
 
 # SOFR Swap rates
@@ -139,10 +139,19 @@ oisTermStructure.enableExtrapolation() # For Extrapolation
 print('USDRFRDF(1D) = ', oisTermStructure.discount(calendar.advance(settlementDate, 
                                                                     ql.Period(1, ql.Days))))
 
-# TODO DFs of futures should be implement...  
+# TODO DFs calc. method of sofr futures should be researched ...  
+for i in range(len(SofeFutures_1M_hepler_list)):
+    tmpdays = SofeFutures_1M_hepler_list[i].maturityDate().serialNumber() - settlementDate.serialNumber()
+    print('USDRFRDF(futures ' + str(SofeFutures_1M_list[i]['Year']) +'_'+ str(SofeFutures_1M_list[i]['Month']) + ') = ', 
+                    oisTermStructure.discount(calendar.advance(settlementDate, 
+                                              ql.Period(tmpdays, ql.Days))))     
 
-print('USDRFRDF(1Y) = ', oisTermStructure.discount(calendar.advance(settlementDate, 
-                                                                    ql.Period(1, ql.Years))))
+for i in range(len(SofeFutures_3M_hepler_list)):
+    tmpdays = SofeFutures_3M_hepler_list[i].maturityDate().serialNumber() - settlementDate.serialNumber()
+    print('USDRFRDF(futures ' + str(SofeFutures_3M_list[i]['Year']) + '_' + str(SofeFutures_3M_list[i]['Month']) + ') = ', 
+                    oisTermStructure.discount(calendar.advance(settlementDate, 
+                                              ql.Period(tmpdays, ql.Days))))   
+
 print('USDRFRDF(2Y) = ', oisTermStructure.discount(calendar.advance(settlementDate, 
                                                                     ql.Period(2, ql.Years))))
 print('USDRFRDF(3Y) = ', oisTermStructure.discount(calendar.advance(settlementDate, 
