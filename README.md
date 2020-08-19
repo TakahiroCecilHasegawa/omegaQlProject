@@ -9,6 +9,8 @@ The purpose of this project are those following:
 * Valuation for swap is calclated with backward-looking rate in float side.
 
 ## Reference
+https://www.risk.net/regulation/7027281/looking-forward-to-backward-looking-rates
+
 
 ## Company Web Site
 http://omegapartners.jp/
