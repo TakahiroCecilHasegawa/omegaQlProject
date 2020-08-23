@@ -15,6 +15,7 @@ tmpYieldCurve = ql.FlatForward(settlementDate,
                                 ql.Compounded,
                                 ql.Continuous)
 
+# setting option
 strike  = 0.01 / 100
 forward = 0.01 / 100
 vol     = 0.10
