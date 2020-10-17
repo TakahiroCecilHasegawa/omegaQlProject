@@ -11,6 +11,8 @@ The purpose of this project are those following:
 * Valuation for swap is calclated with backward-looking rate in float side.
 
 ## Reference
+Hasegawa, Takahiro, Pricing Interest Rate Derivatives after Ibor Fallback (June 30, 2019). Available at SSRN: https://ssrn.com/abstract=3677012 or http://dx.doi.org/10.2139/ssrn.3677012
+
 Hofmann, Karl Friedrich, Implied Volatilities for Options on Backward-Looking Term Rates (May 5, 2020). Available at SSRN: https://ssrn.com/abstract=3593284 or http://dx.doi.org/10.2139/ssrn.3593284
 
 Piterbarg, Vladimir, Interest Rates Benchmark Reform and Options Markets (February 14, 2020). Available at SSRN: https://ssrn.com/abstract=3537925 or http://dx.doi.org/10.2139/ssrn.3537925
